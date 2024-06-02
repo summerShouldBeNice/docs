@@ -137,3 +137,8 @@
   --docsearch-primary-color: var(--vp-c-brand-1) !important;
 }
 
+.ww-green-title {
+    color: #A1DD70;
+    font-size: 18px;
+}
+

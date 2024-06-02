@@ -1,0 +1,7 @@
+/* .vitepress/custom.css */
+blockquote {
+    /*color: #4a90e2; !* 这里设置你想要的颜色 *!*/
+    /*border-left: 4px solid #4a90e2 !important; !* 可选：设置引用部分左侧的边框颜色 *!*/
+    /*padding: 0.5em 1em;*/
+    /*background-color: #f0f8ff; !* 可选：设置引用部分的背景颜色 *!*/
+}
