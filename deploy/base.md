@@ -21,3 +21,5 @@
 2. 使用scp命令上传（适用于目标服务器没有外网的情况下）
 scp /usr/local/jdk-1.8.0.tar.gz root@ip:/usr/local
 ```
+
+<code>111</code> <code>222</code>
