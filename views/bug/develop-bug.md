@@ -1,0 +1,12 @@
+# 实际开发项目中的bug合集.
+
+
+## 多线程使用submit执行业务时，获取不到父线程的租户id
+
+> Spring Security使用***SecurityContextHolder***来存储认证信息，
+> 而***SecurityContextHolder***默认使用***ThreadLocal***来存储这些信息。
+> 这意味着认证信息与创建它的线程绑定，新创建的线程（如异步任务）无法直接访问到这些信息。
+
+<div class="ww-success-title">解决方案:</div>
+
+> 更改Spring Security的数据存储策略为MODE_INHERITABLETHREADLOCAL

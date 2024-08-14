@@ -1,24 +1,21 @@
 import {defineConfig} from 'vitepress'
 
-// https://vitepress.dev/reference/site-config
 export default defineConfig({
     title: "warmwind docs.",
     description: "warmwind docs.",
     themeConfig: {
-        // https://vitepress.dev/reference/default-theme-config
         logo: '/logo.png',
         nav: [
             {text: 'Home', link: '/'},
             {
-                text: '项目文档', items: [
-                    {text: 'starter', link: '/starter'},
-                    {text: 'utils', link: '/starter'},
+                text: 'bug合集', items: [
+                    {text: '开发bug', link: '/views/bug/develop-bug.md'},
                 ]
             },
             {
-                text: 'bug合集', items: [
-                    {text: '开发bug', link: '/bug/develop-bug.md'},
-                    {text: 'bug', link: '/bug'},
+                text: '项目文档', items: [
+                    {text: 'starter', link: '/starter'},
+                    {text: 'utils', link: '/starter'},
                 ]
             },
             {
@@ -55,7 +52,7 @@ export default defineConfig({
         ],
 
         socialLinks: [
-            {icon: 'github', link: 'https://github.com/vuejs/vitepress'}
+            {icon: 'github', link: 'https://github.com/summerShouldBeNice'}
         ],
 
         footer: {
