@@ -13,6 +13,11 @@ export default defineConfig({
                 ]
             },
             {
+                text: '笔记', items: [
+                    {text: 'java', link: '/views/notes/java-note.md'},
+                ]
+            },
+            {
                 text: '项目文档', items: [
                     {text: 'starter', link: '/starter'},
                     {text: 'utils', link: '/starter'},
@@ -25,7 +30,7 @@ export default defineConfig({
             },
             {
                 text: '开发文档', items: [
-                    {text: 'java', link: '/develop/java.md'},
+                    {text: 'java', link: '/develop/java-note.md'},
                     {text: 'mysql', link: '/develop'},
                     {text: 'vue', link: '/develop'},
                     {text: 'bug', link: '/develop/bug.md'},
@@ -42,13 +47,13 @@ export default defineConfig({
         ],
 
         sidebar: [
-            {
-                text: 'Examples',
-                items: [
-                    {text: 'Markdown Examples', link: '/markdown-examples'},
-                    {text: 'Runtime API Examples', link: '/api-examples'}
-                ]
-            }
+            // {
+            //     text: 'Examples',
+            //     items: [
+            //         {text: 'Markdown Examples', link: '/markdown-examples'},
+            //         {text: 'Runtime API Examples', link: '/api-examples'}
+            //     ]
+            // }
         ],
 
         socialLinks: [

@@ -1,14 +1,14 @@
 # 二进制包部署项目.
 
-> 你可能需要先了解：[什么是二进制包安装？](/deploy/base.md#什么是二进制包安装)
+> 你可能需要先了解：[什么是二进制包安装？](/views/deploydeploy/base.md#什么是二进制包安装)
 
 ## 二进制包安装jdk
-1. 将[文件上传](/deploy/base.md#如何上传文件到linux?)到指定目录
+1. 将[文件上传](/views/deploydeploy/base.md#如何上传文件到linux?)到指定目录
 2. 解压压缩包
 ```shell
 tar -zxvf jdk-1.8.0.tar.gz -C /usr/local
 ```
-3. 配置[环境变量](/deploy/base.md#什么是环境变量?)
+3. 配置[环境变量](/views/deploydeploy/base.md#什么是环境变量?)
 ```shell
 # 打开配置文件
 vi /etc/profile
@@ -25,7 +25,7 @@ java -version
 ```
 
 ## 二进制包安装mysql
-1. 将[文件上传](/deploy/base.md#如何上传文件到linux?)到指定目录
+1. 将[文件上传](/views/deploydeploy/base.md#如何上传文件到linux?)到指定目录
 2. 解压压缩包到目标目录
 ```shell
 tar -zxvf mysql5.7.44-linux-glibc2.12-x86_64.tar.gz  -C /usr/local

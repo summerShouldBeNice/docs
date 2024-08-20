@@ -3,7 +3,7 @@ import { h } from 'vue'
 import DefaultTheme from 'vitepress/theme'
 import './style.css'
 import '../custom/custom.css'
-import WwTitle from "../component/ww-title.vue";
+import WwTitle from "../../component/ww-title.vue";
 
 /** @type {import('vitepress').Theme} */
 export default {
