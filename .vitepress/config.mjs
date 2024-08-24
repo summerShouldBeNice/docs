@@ -15,6 +15,7 @@ export default defineConfig({
             {
                 text: '笔记', items: [
                     {text: 'java', link: '/views/notes/java-note.md'},
+                    {text: 'elasticsearch', link: '/views/notes/es-note.md'},
                 ]
             },
             {
