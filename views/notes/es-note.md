@@ -79,6 +79,75 @@ docker run -d \
 - es8+版本运行时候默认会开启ssl，需要修改es以及kibana的配置文件
 :::
 
+## 安装（使用二进制包）
+```shell
+# 1. 下载elasticsearch-8.15.0.tar.gz 安装包上传到/usr/local目录
+# 2. 解压文件
+tar -xvf elasticsearch-8.15.0.tar.gz
+# 3. 创建es数据目录和日志目录
+mkdir /usr/local/elasticsearch-8.15.0/data
+mkdir /usr/local/elasticsearch-8.15.0/logs
+# 4. 更改es配置文件, 在配置文件末尾根据需要添加以下内容
+network.host: 0.0.0.0  #可远程访问
+path.data: /usr/local/elasticsearch-8.15.0/data #设置自定义数据目录
+path.logs: /usr/local/elasticsearch-8.15.0/logs #设置自定义日志目录
+node.name: es-single-server   #节点名称（这个与下面一点一定要配，不然即使启动成功也会操作超时或发生master_not_discovered_exception）
+cluster.initial_master_nodes: ["es-single-server"]  #发现当前节点名称
+http.port: 9200    #端口号
+http.cors.allow-origin: "*"   #以下皆是跨域配置
+http.cors.enabled: true
+http.cors.allow-headers : X-Requested-With,X-Auth-Token,Content-Type,Content-Length,Authorization
+http.cors.allow-credentials: true
+# 5. 创建用户组（因为es不允许root用户直接启动，如果需要root用户启动需要在启动时添加命令-Des.insecure.allow.root=true）
+groupadd es
+useradd es-user
+passwd es-user
+# 6. 账号密码为：es-user / mujin@es
+# 7. 给es用户授权
+chown -R es-user:es /usr/local/elasticsearch-8.15.0
+# 8. 修改文件描述符限制
+vim /etc/security/limits.conf
+# 9. 文件末尾添加
+* soft nofile 65536
+* hard nofile 65536
+# 10. 检查是否生效（如果不生效先exit再重新打开）
+ulimit -n
+# 11. 设置最大内存分配，在文件末尾添加配置，保存退出并重新加载
+vim /etc/sysctl.conf 
+vm.max_map_count=262144
+sysctl -p
+# 12. 切换用户启动es
+su es-user
+cd /usr/local/elasticsearch-8.15.0/bin
+./elasticsearch -d
+# 13. es8+以上启动后会强制要求https才能访问需要修改配置文件,需要关闭https
+xpack.security.enabled: false
+xpack.security.enrollment.enabled: false
+xpack.security.http.ssl:
+enabled: false
+keystore.path: certs/http.p12
+xpack.security.transport.ssl:
+enabled: false
+verification_mode: certificate
+keystore.path: certs/transport.p12
+truststore.path: certs/transport.p12
+# 14. 修改后重启es
+# 15. es默认的jvm内存大小是内存的一般，需要根据业务数据量在jvm.options里设置
+```
+
+## 启动流程
+```shell
+# 1.切换es-user用户
+su es-user
+# 2. 进入bin目录
+cd /usr/local/elasticsearch-7.17.23/bin
+# 3. 启动es(后台运行)
+sh elasticsearch -d
+# 4. 关闭es
+ps -ef | grep elastic
+kill -9 [pid]
+```
+
 ## 索引库操作
 
 1. 创建索引库
