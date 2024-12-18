@@ -11,14 +11,16 @@
    - Library：Homebrew 系统自身文件夹
    - Cellar：通过brew安装的程序将以 \[程序名/版本号] 存放于本目录下
 3. brew install和brew cask install的区别
-   - brew install 会下载源码解压，然后 ./configure && make install ，同时会包含相关依存库，并自动配置好各种环境变量。
-   - brew cask install 是针对已经编译好了的应用包（.dmg/.pkg）下载解压，然后放在统一的目录中（Caskroom），省掉了自己下载、解压、安装等步骤。
+   - brew install 会下载源码解压，然后 ./configure && make install ，同时会包含相关依存库，并自动配置好各种环境变量。<br/> brew install 用来安装一些不带界面的命令行工具和第三方库。
+   - brew cask install 是针对已经编译好了的应用包（.dmg/.pkg）下载解压，然后放在统一的目录中（Caskroom），省掉了自己下载、解压、安装等步骤。<br/> brew cask install 用来安装一些带界面的应用软件。
 
 ## 常用命令
 
 ```shell
 brew -v                             # 查看brew版本
 brew update                         # brew自身更新
+brew config                         # 查看brew配置文件
+brew --repo                         # 获取 Homebrew 仓库的路径
 brew outdated                       # 查看哪些包可以更新
 brew search TEXT|/REGEX/            # 软件搜索
 brew info [FORMULA|CASK...]         # 查看软件相关信息
