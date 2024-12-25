@@ -145,4 +145,11 @@ public class TestMain implements Callable<String> {
 实际开发中应该尽量避免或禁止使用Executors去创建线程。
 :::
 
-### 线程池的最佳实践
+### API和SPI的区别
+
+
+#### API 通常是由软件库或服务的提供者设计，用于向外部暴露功能。
+
+例：
+
+#### SPI 主要用于扩展框架的功能。它允许框架具有开放性，能够整合第三方的实现。
